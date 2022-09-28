@@ -22,13 +22,11 @@ RUN chmod +x /usr/local/bin/kind
 COPY helm /usr/local/bin/
 RUN chmod +x /usr/local/bin/helm
 
-RUN helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
+RUN helm repo add mo https://wanglei4687.github.io/charts && helm repo update
 
 COPY start.sh /
 
 RUN chmod 755  /start.sh
 
-VOLUME /var/lib/docker
-EXPOSE 2375 2376
-
 ENTRYPOINT ["dockerd-entrypoint.sh"]
+CMD ["/start.sh"]
