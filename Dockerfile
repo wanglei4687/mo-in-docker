@@ -26,7 +26,8 @@ RUN helm repo add mo https://wanglei4687.github.io/charts && helm repo update
 
 COPY start.sh /
 
-RUN chmod 755  /start.sh
+VOLUME /var/lib/docker
+EXPOSE 2375 2376
 
-ENTRYPOINT ["dockerd-entrypoint.sh"]
-CMD ["/start.sh"]
+ENTRYPOINT ["/start.sh"]
+CMD []
