@@ -27,7 +27,7 @@ RUN helm repo add mo https://wanglei4687.github.io/charts && helm repo update
 COPY start.sh /
 
 VOLUME /var/lib/docker
-EXPOSE 2375 2376
+EXPOSE 2375 2376 6001
 
 ENTRYPOINT ["/start.sh"]
 CMD []
